@@ -7,9 +7,11 @@ The exponential growth of different intrusions on networked systems inspires new
 # Performance
 
 Overall performances for AI models with top 15 features for the RoEduNet-SIMARGL2021 dataset.
+
 ![image](https://user-images.githubusercontent.com/55901425/227804282-299f2b99-dca1-4a7e-a13c-2207cfadd4ee.png)
 
 Overall performances for AI models with top 15 features for the CICIDS-2017 dataset.
+
 ![image](https://user-images.githubusercontent.com/55901425/227804311-8affc707-16c4-4109-901a-ffb6f69846ad.png)
 
 Low-Level XAI Pipeline Components
@@ -44,6 +46,16 @@ Low-Level XAI Pipeline Components
   2. Run the example python notebook called "Local_LIME_SHAP.ipyn" in a python notebook environment.
   3. The program outputs one Local Waterfall shap explanation and one Local LIME explanation for the same sample using the Random Forest method
 
-# Visualization results for Global Summary/Beeswarm plots. 
+# Visualization results  
 
+## Global Summary/Beeswarm plots with SHAP. 
 
+Results example for Random Forest using RoEduNet-SIMARGL2021.
+
+![image](https://user-images.githubusercontent.com/55901425/227805146-0a686613-1428-432a-a8b4-e93221eff1b3.png)
+![image](https://user-images.githubusercontent.com/55901425/227805161-1ef31f27-74eb-44ff-a29c-9ca3d723dbfb.png)
+
+## Local Explanation with LIME and SHAP.
+
+![image](https://user-images.githubusercontent.com/55901425/227805234-0f0f9ac4-9b90-4c31-af63-61de5063ad29.png)
+![image](https://user-images.githubusercontent.com/55901425/227805243-069ddaff-d56c-4805-b53e-b771ae1c5d43.png)
