@@ -8,6 +8,7 @@ The exponential growth of different intrusions on networked systems inspires new
 
 Low-Level XAI Pipeline Components
   Loading Intrusion Database:
+  
   Feature Extraction: 
   Redundancy Elimination and Randomizing Rows:
   Data Balancing: 
@@ -19,5 +20,10 @@ Low-Level XAI Pipeline Components
   Rationale of Choosing SHAP and LIME:
   Feature Explanation:
   
-RoEduNet-SIMARGL2021: https://www.kaggle.com/datasets/7f91274fa3074d53e983f6eb7a7b24ad1dca136ca967ad0ebe48955e246c24ee
-CICIDS-2017: https://www.kaggle.com/datasets/cicdataset/cicids2017
+
+How to use the programs:
+  1) Download both datasets
+    RoEduNet-SIMARGL2021: https://www.kaggle.com/datasets/7f91274fa3074d53e983f6eb7a7b24ad1dca136ca967ad0ebe48955e246c24ee
+    CICIDS-2017: https://www.kaggle.com/datasets/cicdataset/cicids2017
+  2) Each program is a standalone program that is aimed to run one form of AI model within a set of features. (i.e. DNN_final.py in the CICIDS-2017 folder will run the      DNN model with 15 features for that given dataset. On the other hand. DNN_all_final.py will run the DNN model for all features for the given dataset).
+  3) Each program outputs a confusion matrix, metrics scores (i.e. accuracy (ACC), precision (Prec), recall (Rec), F1-score (F1), Matthews correlation coefficient  (MCC), balanced accuracy (BACC), and the area under ROC curve (AUCROC)), and the Global Summary/Beeswarm Plot.
