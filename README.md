@@ -29,8 +29,21 @@ Low-Level XAI Pipeline Components
   
 
 # How to use the programs:
-  1. Download both datasets
+## For Global Explanations.
+  1. Download one of the datasets.
     RoEduNet-SIMARGL2021: https://www.kaggle.com/datasets/7f91274fa3074d53e983f6eb7a7b24ad1dca136ca967ad0ebe48955e246c24ee
     CICIDS-2017: https://www.kaggle.com/datasets/cicdataset/cicids2017
   2. Each program is a standalone program that is aimed to run one form of AI model within a set of features. (i.e. DNN_final.py in the CICIDS-2017 folder will run the      DNN model with 15 features for that given dataset. On the other hand. DNN_all_final.py will run the DNN model for all features for the given dataset).
-  3. Each program outputs a confusion matrix, metrics scores (i.e. accuracy (ACC), precision (Prec), recall (Rec), F1-score (F1), Matthews correlation coefficient  (MCC), balanced accuracy (BACC), and the area under ROC curve (AUCROC)), and the Global Summary/Beeswarm Plot.
+  3. Download that program 'utils.py' and leave it in the folder of the model program. 
+  4. Each program outputs a confusion matrix, metrics scores (i.e. accuracy (ACC), precision (Prec), recall (Rec), F1-score (F1), Matthews correlation coefficient  (MCC), balanced accuracy (BACC), and the area under ROC curve (AUCROC)), and the Global Summary/Beeswarm Plot.
+
+## For Local Explanations. 
+  1. Download one of the datasets.
+    RoEduNet-SIMARGL2021: https://www.kaggle.com/datasets/7f91274fa3074d53e983f6eb7a7b24ad1dca136ca967ad0ebe48955e246c24ee
+    CICIDS-2017: https://www.kaggle.com/datasets/cicdataset/cicids2017
+  2. Run the example python notebook called "Local_LIME_SHAP.ipyn" in a python notebook environment.
+  3. The program outputs one Local Waterfall shap explanation and one Local LIME explanation for the same sample using the Random Forest method
+
+# Visualization results for Global Summary/Beeswarm plots. 
+
+
