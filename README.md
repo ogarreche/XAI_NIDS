@@ -56,6 +56,8 @@ Results example for Random Forest using RoEduNet-SIMARGL2021.
 ![image](https://user-images.githubusercontent.com/55901425/227805161-1ef31f27-74eb-44ff-a29c-9ca3d723dbfb.png)
 
 ## Local Explanation with LIME and SHAP.
+ 
+ Results using SHAP and LIME for the same Random Forest prediction for a normal traffic sample from the CICIDS-2017 dataset.
 
 ![image](https://user-images.githubusercontent.com/55901425/227805234-0f0f9ac4-9b90-4c31-af63-61de5063ad29.png)
 ![image](https://user-images.githubusercontent.com/55901425/227805243-069ddaff-d56c-4805-b53e-b771ae1c5d43.png)
