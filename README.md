@@ -43,7 +43,7 @@ Low-Level XAI Pipeline Components
   1. Download one of the datasets.
     RoEduNet-SIMARGL2021: https://www.kaggle.com/datasets/7f91274fa3074d53e983f6eb7a7b24ad1dca136ca967ad0ebe48955e246c24ee
     CICIDS-2017: https://www.kaggle.com/datasets/cicdataset/cicids2017
-  2. Run the example python notebook called "Local_LIME_SHAP.ipyn" in a python notebook environment.
+  2. Run the example python notebook called "RF_LIME_SHAP.ipyn" in a python notebook environment.
   3. The program outputs one Local Waterfall shap explanation and one Local LIME explanation for the same sample using the Random Forest method
 
 # Visualization results  
