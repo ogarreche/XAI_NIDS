@@ -8,11 +8,11 @@ The exponential growth of different intrusions on networked systems inspires new
 
 Overall performances for AI models with top 15 features for the RoEduNet-SIMARGL2021 dataset.
 
-![image](https://user-images.githubusercontent.com/55901425/227804282-299f2b99-dca1-4a7e-a13c-2207cfadd4ee.png)
+![image](https://user-images.githubusercontent.com/55901425/228660881-86554614-d70b-49df-a6ea-3a22a118aca0.png)
 
 Overall performances for AI models with top 15 features for the CICIDS-2017 dataset.
 
-![image](https://user-images.githubusercontent.com/55901425/227804311-8affc707-16c4-4109-901a-ffb6f69846ad.png)
+![image](https://user-images.githubusercontent.com/55901425/228660928-d2df3862-6cda-49e2-ab76-6e4e3179ffc1.png)
 
 Low-Level XAI Pipeline Components
 
