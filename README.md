@@ -1,4 +1,4 @@
-# Towards an Explainable Artificial Intelligence Framework for Enhancing Explainability in Network Intrusion Detection Systems
+# XAI-IDS: Towards Proposing an Explainable Artificial Intelligence Framework for Enhancing Network Intrusion Detection Systems
 
 # Abstract
 
