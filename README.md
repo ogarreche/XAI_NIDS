@@ -61,3 +61,20 @@ Results example for Random Forest using RoEduNet-SIMARGL2021.
 
 ![image](https://user-images.githubusercontent.com/55901425/227805234-0f0f9ac4-9b90-4c31-af63-61de5063ad29.png)
 ![image](https://user-images.githubusercontent.com/55901425/227805243-069ddaff-d56c-4805-b53e-b771ae1c5d43.png)
+
+## Xplique toolbox.
+
+We want to cite the following pages for this section.
+
+- IGTD github: https://github.com/zhuyitan/IGTD
+- Xplique github: https://github.com/deel-ai/xplique
+
+The feature importance using Xplique for CICIDS-2017 dataset for SHAP
+(on the left) and LIME (on the right).
+
+![image](https://github.com/ogarreche/XAI_NIDS/assets/55901425/c5b559a6-d11e-4381-8d2d-520eccda3e41)
+
+
+
+
+
