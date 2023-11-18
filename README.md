@@ -16,7 +16,8 @@ Overall performances for AI models with top 15 features for the CICIDS-2017 data
 
 Low-Level XAI Pipeline Components
 
-![image](https://user-images.githubusercontent.com/55901425/227802937-a66c9dd3-14da-41fc-9319-e98696bd85dc.png)
+![image](https://github.com/ogarreche/XAI_NIDS/assets/55901425/429da6df-95c5-4da5-b3de-f79f80825091)
+
 
 
   - Loading Intrusion Database: Loading either one of the datasets.
