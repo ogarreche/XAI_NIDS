@@ -62,18 +62,18 @@ Results example for Random Forest using RoEduNet-SIMARGL2021.
 ![image](https://user-images.githubusercontent.com/55901425/227805234-0f0f9ac4-9b90-4c31-af63-61de5063ad29.png)
 ![image](https://user-images.githubusercontent.com/55901425/227805243-069ddaff-d56c-4805-b53e-b771ae1c5d43.png)
 
-## Xplique toolbox.
+## Xplique toolbox comparison.
 
 We want to cite the following pages for this section.
 
 - IGTD github: https://github.com/zhuyitan/IGTD
 - Xplique github: https://github.com/deel-ai/xplique
 
-To generate the results below
+To generate the results below, please go to the Xplique folder and:
 
 1) Convert the tabular dataset into images using tabconversion_cic.py
-2) Run the Attributions_Regression_CIC.ipynb
-3) 
+2) Run the metrics_cic.ipynb
+3) Run the Attributions_Regression_CIC.ipynb
 
 The feature importance using Xplique for CICIDS-2017 dataset for SHAP
 (on the left) and LIME (on the right).
