@@ -74,7 +74,9 @@ The feature importance using Xplique for CICIDS-2017 dataset for SHAP
 
 ![image](https://github.com/ogarreche/XAI_NIDS/assets/55901425/c5b559a6-d11e-4381-8d2d-520eccda3e41)
 
+Xplique metrics (Deletion, Insetion, MuFidelity, and Stability) and their corresponding results for SHAP and LIME for our three datasets.
 
+![image](https://github.com/ogarreche/XAI_NIDS/assets/55901425/7cc7bfd7-5c4f-4a48-b8dd-181585966c76)
 
 
 
