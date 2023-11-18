@@ -63,6 +63,10 @@ Results example for Random Forest using RoEduNet-SIMARGL2021.
 
 # Update changes after revision
 
+## XAI-Framework.
+
+(In construction: Tanish will add instructions and explanation for framework)
+
 ## Xplique toolbox comparison.
 
 We want to cite the following pages for this section.
