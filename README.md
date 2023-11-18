@@ -69,6 +69,12 @@ We want to cite the following pages for this section.
 - IGTD github: https://github.com/zhuyitan/IGTD
 - Xplique github: https://github.com/deel-ai/xplique
 
+To generate the results below
+
+1) Convert the tabular dataset into images using tabconversion_cic.py
+2) Run the Attributions_Regression_CIC.ipynb
+3) 
+
 The feature importance using Xplique for CICIDS-2017 dataset for SHAP
 (on the left) and LIME (on the right).
 
