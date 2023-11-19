@@ -65,8 +65,48 @@ Results example for Random Forest using RoEduNet-SIMARGL2021.
 
 ## XAI-Framework.
 
-(In construction: Tanish will add instructions and explanation for framework)
 Please see new programs inside the folder Framework.
+
+[8:15 PM] Guntur, Tanish Rohith
+
+ 
+
+ 
+
+Preprocessing File
+
+ 
+
+To begin using our framework, run the preprocessing file. This file is designed to process your raw data, encompassing steps like normalization, encoding, and feature selection. Upon completion, it will output four key datasets: `X_train`, `X_test`, `Y_train`, and `Y_test`. These datasets are crucial for feeding into the subsequent model training and testing phases.
+
+ 
+
+All_Model File
+
+ 
+
+For users looking to test our architecture with their data, the `All_Model` file is your next step. This interactive file allows you to choose from seven different machine learning algorithms, depending on your specific needs or experimental setup. The options range from ensemble methods like AdaBoost and Random Forest to neural networks, KNN, MLP, and SGD. Simply run the `All_Model` file, select your desired algorithm, and it will automatically apply it to the datasets generated from your preprocessing step.
+
+ 
+
+XAI_Framework Folder
+
+ 
+
+A pivotal component of our project is the `XAI_Framework` folder, focusing on Explainable AI (XAI). This folder contains tools and functions for analyzing and visualizing the decision-making process of the models. It is designed to be modified or extended as per your requirements, offering insights into how and why specific model predictions are made.
+
+ 
+
+Modularity and Flexibility
+
+ 
+
+Our project's architecture is intentionally modular and user-friendly. Each component - preprocessing, model training, and XAI - is independent yet seamlessly integrated. This design ensures that small changes in one part do not impact the overall functionality, offering a flexible and adaptable environment for users. Whether you're conducting academic research or applying it in industry, our framework is equipped to cater to a wide range of applications and user scenarios.
+
+ 
+
+Can you add this in readme, If you feel you want to change something please go ahead. I will keep on working tomorrow as well as i haven't tested much. Thought i have removed utils file. I haven't changed any of your code. Can you use python library for over sampling and also i feel better if we can create frameworks for 3 datasets. I would say it would be better to create a preprocessing file and test on ALL_models file. 
+
 
 ## Xplique toolbox comparison.
 
