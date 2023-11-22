@@ -142,9 +142,9 @@ print("1. AdaBoost Classifier")
 print("2. K-Nearest Neighbors (KNN)")
 print("3. Multi-Layer Perceptron (MLP)")
 print("4. Random Forest Classifier")
-print("5. Stochastic Gradient Descent (SGD)")
+print("5. Deep Neural Network (DNN)")
 print("6. LightGBM")
-print("7. Neural Network with TensorFlow/Keras")
+print("7. Support Vector Machine (SVM)")
 
 model_choice = input("Enter your choice (1-7): ")
 
@@ -244,46 +244,46 @@ elif model_choice == '3':
     print(f'Time taken for pred: {time_taken} seconds')
 
 elif model_choice == '4':
-    # Random Forest Classifier code
-    multi_target_rf = MultiOutputClassifier(RandomForestClassifier(n_estimators=200, max_depth=15, min_samples_split=10, min_samples_leaf=5, class_weight='balanced_subsample', random_state=0))
-    # ... [Rest of Random Forest training and prediction code] ...
-
-elif model_choice == '5':
-    # Stochastic Gradient Descent (SGD) code
-    multi_target_clf = MultiOutputClassifier(SGDClassifier(loss='hinge'))
-    # ... [Rest of SGD training and prediction code] ...
-
-elif model_choice == '6':
-    from lightgbm import LGBMClassifier
+    from sklearn.ensemble import RandomForestClassifier
     from sklearn.multioutput import MultiOutputClassifier
+    import time
+    import numpy as np
 
-    # Create LGBMClassifier instance with default parameters
-    lgbm = LGBMClassifier(random_state=0)
+    # Assuming 'X_train', 'Y_train', 'X_test', and 'Y_test' are already defined
 
-    # Wrap LGBMClassifier with MultiOutputClassifier
-    multi_target_lgbm = MultiOutputClassifier(lgbm)
+    # Create RandomForestClassifier instance with specified parameters
+    rf = RandomForestClassifier(
+    n_estimators=200, 
+    max_depth=15, 
+    min_samples_split=10, 
+    min_samples_leaf=5, 
+    class_weight='balanced_subsample', 
+    random_state=0,
+    n_jobs=-1  # Utilize all processors for training
+    )
+
+    # Get feature names from the training set
+    feature_names = X_train.columns.tolist()
+
+    # Reorder the test set to match the training set
+    X_test = X_test[feature_names]
+
+    # Wrap RandomForestClassifier with MultiOutputClassifier
+    multi_target_rf = MultiOutputClassifier(rf)
 
     # Training the model
-    multi_target_lgbm.fit(X_train, Y_train)
+    start = time.time()
+    multi_target_rf.fit(X_train.values, Y_train)
+    end = time.time()
+    print(f'Time taken for training: {end - start} seconds')
 
-    # Now you can predict the test set results
-    y_pred = multi_target_lgbm.predict(X_test)
+    # Predict the test set results
+    start = time.time()
+    preds = multi_target_rf.predict(X_test)
+    end = time.time()
+    print(f'Time taken for predictions: {end - start} seconds')
 
-
-    # In[26]:
-
-
-    # Convert Y_test back to its original format
-    y_test = np.argmax(Y_test, axis=1)
-
-
-    # In[27]:
-
-
-    pred_labels = np.argmax(y_pred, axis=1)
-
-
-elif model_choice == '7':
+elif model_choice == '5':
     from tensorflow.keras.models import Sequential
     from tensorflow.keras.layers import Dense
     import numpy as np
@@ -316,7 +316,7 @@ elif model_choice == '7':
     preds = model.predict(X_test)
 
 
-# In[27]:
+    # In[27]:
 
 
     start = time.time()
@@ -328,6 +328,68 @@ elif model_choice == '7':
     end = time.time()
     time_taken = end - start
     print(f'Time taken for pred: {time_taken} seconds')
+
+
+elif model_choice == '6':
+    from lightgbm import LGBMClassifier
+    from sklearn.multioutput import MultiOutputClassifier
+
+    # Create LGBMClassifier instance with default parameters
+    lgbm = LGBMClassifier(random_state=0)
+
+    # Wrap LGBMClassifier with MultiOutputClassifier
+    multi_target_lgbm = MultiOutputClassifier(lgbm)
+
+    # Training the model
+    multi_target_lgbm.fit(X_train, Y_train)
+
+    # Now you can predict the test set results
+    y_pred = multi_target_lgbm.predict(X_test)
+
+
+    # In[26]:
+
+
+    # Convert Y_test back to its original format
+    y_test = np.argmax(Y_test, axis=1)
+
+
+    # In[27]:
+
+
+    pred_labels = np.argmax(y_pred, axis=1)
+
+
+elif model_choice == '7':
+    from sklearn.multioutput import MultiOutputClassifier
+    from sklearn.linear_model import SGDClassifier
+
+    # Instantiate the SGDClassifier
+    clf = SGDClassifier(loss='hinge')  # hinge loss gives a linear SVM
+
+    # Wrap SGDClassifier with MultiOutputClassifier
+    multi_target_clf = MultiOutputClassifier(clf)
+
+    # Fit the model
+    multi_target_clf.fit(X_train, Y_train)
+
+    # Make predictions
+    y_pred = multi_target_clf.predict(X_test)
+
+
+    # In[37]:
+
+
+    # Convert Y_test back to its original format
+    y_test = np.argmax(Y_test, axis=1)
+
+
+    # In[57]:
+
+
+    pred_labels = np.argmax(y_pred, axis=1)
+
+
 else:
     print("Invalid choice.")
 
@@ -340,130 +402,45 @@ else:
 
 
 
-# In[29]:
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
+from sklearn.preprocessing import LabelBinarizer
 
+# Convert predictions and true labels to label format if they are one-hot encoded
+y_pred_labels = np.argmax(y_pred, axis=1)
+y_test_labels = np.argmax(Y_test, axis=1)
 
-pred_labels = np.argmax(y_pred, axis=1)
+# Print classification report
+print("Classification Report:")
+print(classification_report(y_test_labels, y_pred_labels, target_names=['Normal', 'DoS', 'Probe', 'R2L', 'U2R']))
 
+# Confusion Matrix
+confusion = confusion_matrix(y_test_labels, y_pred_labels)
+print("Confusion Matrix:")
+print(confusion)
 
-# In[30]:
-
-
-# Convert Y_test back to its original format
-y_test = np.argmax(Y_test, axis=1)
-
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.multioutput import MultiOutputClassifier
-import time
-# Create RandomForestClassifier instance with modified parameters
-rf = RandomForestClassifier(n_estimators=200, max_depth=15, min_samples_split=10, min_samples_leaf=5, class_weight='balanced_subsample', random_state=0)
-
-# Assume 'X_train' is your training data and 'X_test' your test data
-
-# Get feature names from the training set
-feature_names = X_train.columns.tolist()
-
-# Reorder the test set to match the training set
-X_test = X_test[feature_names]
-
-# Wrap RandomForestClassifier with MultiOutputClassifier
-multi_target_rf = MultiOutputClassifier(rf)
-start=time.time()
-# Training the model
-multi_target_rf.fit(X_train.values, Y_train)
-end=time.time()
-time_taken = end - start
-print(f'Time taken for training: {time_taken} seconds')
-start=time.time()
-# Now you can predict the test set results
-preds = multi_target_rf.predict(X_test)
-end=time.time()
-time_taken = end - start
-print(f'Time taken for pred: {time_taken} seconds')
-
-
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.multioutput import MultiOutputClassifier
-
-
-# In[75]:
-
-
-print('Defining the model')
-print('--------------------------------------------------')
-rf = RandomForestClassifier(max_depth = 5,  n_estimators = 10, min_samples_split = 2, n_jobs = -1)
-#------------------------------------------------------------------------------
-model_rf = rf.fit(X_train.values,Y_train)
-
-
-
-preds = rf.predict(X_test)
-
-
-pred_labels = np.argmax(preds, axis=1)
-
-
-
-# Convert Y_test back to its original format
-y_test = np.argmax(Y_test, axis=1)
-
-
-from sklearn.multioutput import MultiOutputClassifier
-from sklearn.linear_model import SGDClassifier
-
-# Instantiate the SGDClassifier
-clf = SGDClassifier(loss='hinge')  # hinge loss gives a linear SVM
-
-# Wrap SGDClassifier with MultiOutputClassifier
-multi_target_clf = MultiOutputClassifier(clf)
-
-# Fit the model
-multi_target_clf.fit(X_train, Y_train)
-
-# Make predictions
-y_pred = multi_target_clf.predict(X_test)
-
-
-# In[37]:
-
-
-# Convert Y_test back to its original format
-y_test = np.argmax(Y_test, axis=1)
-
-
-# In[57]:
-
-
-pred_labels = np.argmax(y_pred, axis=1)
-
-
-# In[48]:
-
-
-pred_labels = np.argmax(y_pred, axis=1)
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score
-import numpy as np
-
-y_pred=np.argmax(y_pred, axis=1)
-y_true_multiclass = np.argmax(Y_test, axis=1)
-confusion = confusion_matrix(y_true_multiclass, y_pred)
-
-# Binarize the output for AUC
+# Binarize the output for AUC calculation if necessary
 lb = LabelBinarizer()
-lb.fit(y_true_multiclass)
-y_test_bin = lb.transform(y_true_multiclass)
-y_pred_bin = lb.transform(y_pred)
+lb.fit(y_test_labels)
+y_test_bin = lb.transform(y_test_labels)
+y_pred_bin = lb.transform(y_pred_labels)
 
-# Iterate through each class and calculate the metrics
-class_names = ['Normal','DoS', 'Probe', 'R2L', 'U2R']
-for i in range(len(class_names)):
+# Calculate AUC-ROC
+if Y_test.shape[1] == 2:  # Binary classification
+    roc_auc = roc_auc_score(y_test_bin, y_pred_bin)
+elif Y_test.shape[1] > 2:  # Multi-class classification
+    roc_auc = roc_auc_score(y_test_bin, y_pred_bin, multi_class='ovr', average='macro')
+
+print(f"AUC-ROC: {roc_auc}")
+
+# Additional Metrics if needed
+# Iterate through each class and calculate additional metrics
+class_names = ['Normal', 'DoS', 'Probe', 'R2L', 'U2R']
+for i, class_name in enumerate(class_names):
     TP = confusion[i, i]
     FP = confusion[:, i].sum() - TP
     FN = confusion[i, :].sum() - TP
     TN = confusion.sum() - TP - FP - FN
-    
+
     # Call your metrics functions
     Acc = ACC(TP, TN, FP, FN)
     Precision = PRECISION(TP, FP)
@@ -471,29 +448,18 @@ for i in range(len(class_names)):
     F1_score = F1(Recall, Precision)
     Balanced_accuracy = BACC(TP, TN, FP, FN)
     Matthews = MCC(TP, TN, FP, FN)
-    
-    # AUC_ROC calculation
-    AUC_ROC = roc_auc_score(y_test_bin[:, i], y_pred_bin[:, i])
-    
+
     # Print metrics
-    print(f'Metrics for: {class_names[i]}')
-    print('Accuracy: ', Acc)
-    print('Precision: ', Precision)
-    print('Recall: ', Recall)
-    print('F1: ', F1_score)
-    print('BACC: ', Balanced_accuracy)
-    print('MCC: ', Matthews)
-    print('AUC_ROC: ', AUC_ROC)
+    print(f'Metrics for {class_name}:')
+    print(f'  Accuracy: {Acc}')
+    print(f'  Precision: {Precision}')
+    print(f'  Recall: {Recall}')
+    print(f'  F1 Score: {F1_score}')
+    print(f'  Balanced Accuracy: {Balanced_accuracy}')
+    print(f'  MCC: {Matthews}')
     print()
 
-# AUC_ROC total
-print('AUC_ROC total: ', roc_auc_score(y_test_bin, y_pred_bin, multi_class='ovr'))
 print('---------------------------------------------------------------------------------')
-
-
-
-# Convert Y_test back to its original format
-y_test = np.argmax(Y_test, axis=1)
 
 
 # In[68]:
@@ -639,20 +605,15 @@ print(y_test[misclassified_indices[3]], pred_labels[misclassified_indices[3]])
 
 '''
 import sys
-import os
 
-# Get the directory of the current script
-current_dir = os.path.dirname(os.path.abspath('/Users/tanishrohith/Downloads/XAI_NIDS-main_framework/NSL-KDD/ADA_ALL_FINAL.py'))
+# Path to the directory where XAI_Framework is located
+framework_dir = '/Users/tanishrohith/Downloads/XAI_NIDS-main_framework'
 
-# Get the parent directory
-parent_dir = os.path.dirname('/Users/tanishrohith/Downloads/XAI_NIDS-main_framework/NSL-KDD/')
+# Add the directory to sys.path
+sys.path.append(framework_dir)
 
-# Add the parent directory to sys.path
-sys.path.append('/Users/tanishrohith/Downloads/XAI_NIDS-main_framework')
-
-# Now you can import from XAI_Framework
+# Now try importing your module
 from XAI_Framework.Shap_Lime import shap_barplots, shap_waterfallplot, shap_beeswarmplot, lime_plot
-
 # Use the imported functions
 
 
