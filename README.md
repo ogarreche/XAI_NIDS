@@ -61,11 +61,8 @@ Results example for Random Forest using RoEduNet-SIMARGL2021.
 ![image](https://user-images.githubusercontent.com/55901425/227805234-0f0f9ac4-9b90-4c31-af63-61de5063ad29.png)
 ![image](https://user-images.githubusercontent.com/55901425/227805243-069ddaff-d56c-4805-b53e-b771ae1c5d43.png)
 
-# Update changes after revision
 
 ## XAI-Framework.
-
-Please see new programs inside the folder Framework.
 
 Preprocessing File:
 
@@ -84,7 +81,7 @@ Modularity and Flexibility:
 - Our project's architecture is intentionally modular and user-friendly. Each component - preprocessing, model training, and XAI - is independent yet seamlessly integrated. This design ensures that small changes in one part do not impact the overall functionality, offering a flexible and adaptable environment for users. Whether you're conducting academic research or applying it in industry, our framework is equipped to cater to a wide range of applications and user scenarios.
 
 
-## Xplique toolbox comparison.
+## Extra: Xplique toolbox comparison.
 
 We want to cite the following pages for this section.
 
