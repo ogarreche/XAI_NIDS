@@ -104,4 +104,9 @@ Xplique metrics (Deletion, Insetion, MuFidelity, and Stability) and their corres
 ![image](https://github.com/ogarreche/XAI_NIDS/blob/main/images/xpliquemetrics.png?raw=true)
 
 
+### Citation:
+
+Please cite this work if it was useful to you :)
+
+https://www.mdpi.com/2076-3417/14/10/4170
 
