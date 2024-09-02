@@ -140,7 +140,23 @@ print('')
 
 df_max_scaled = df.copy()
 
-y = df_max_scaled[' Label'].replace({'DDoS' :'Dos/Ddos' ,'DoS GoldenEye': 'Dos/Ddos', 'DoS Hulk': 'Dos/Ddos', 'DoS Slowhttptest': 'Dos/Ddos', 'DoS slowloris': 'Dos/Ddos', 'Heartbleed': 'Dos/Ddos','FTP-Patator': 'Brute Force', 'SSH-Patator': 'Brute Force','Web Attack - Brute Force': 'Web Attack', 'Web Attack - Sql Injection': 'Web Attack', 'Web Attack - XSS': 'Web Attack'})
+# y = df_max_scaled[' Label'].replace({'DDoS' :'Dos/Ddos' ,'DoS GoldenEye': 'Dos/Ddos', 'DoS Hulk': 'Dos/Ddos', 'DoS Slowhttptest': 'Dos/Ddos', 'DoS slowloris': 'Dos/Ddos', 'Heartbleed': 'Dos/Ddos','FTP-Patator': 'Brute Force', 'SSH-Patator': 'Brute Force','Web Attack - Brute Force': 'Web Attack', 'Web Attack - Sql Injection': 'Web Attack', 'Web Attack - XSS': 'Web Attack'})
+
+y = df_max_scaled[' Label'].replace({'DoS GoldenEye': 'Dos/Ddos', 
+                                    'DoS Hulk': 'Dos/Ddos', 
+                                    'DoS Slowhttptest': 'Dos/Ddos', 
+                                    'DoS slowloris': 'Dos/Ddos', 
+                                    'Heartbleed': 'Dos/Ddos', 
+                                    'DDoS': 'Dos/Ddos',
+                                    'FTP-Patator': 'Brute Force', 
+                                    'SSH-Patator': 'Brute Force',
+                                    'Web Attack - Brute Force': 'Web Attack', 
+                                    'Web Attack - Sql Injection': 'Web Attack',
+                                    'Web Attack - XSS': 'Web Attack',                                
+                                    'Web Attack   XSS': 'Web Attack',
+                                    'Web Attack   Sql Injection': 'Web Attack',
+                                    'Web Attack   Brute Force': 'Web Attack'                                   
+                                   })
 
 df_max_scaled.pop(' Label')
 
