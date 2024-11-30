@@ -125,3 +125,16 @@ Please cite this work if it was useful to you :)
 
 https://www.mdpi.com/2076-3417/14/10/4170
 
+
+
+### Note
+
+1) The programs were tested on linux. If using windows, you might run in the error: "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x96 in position 22398: invalid start byte
+", please refer to: https://github.com/ogarreche/Ensemble_Learning_2_Levels_IDS/issues/1 
+
+
+2) FOR THE CICIDS dataset: I suggest going to the Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv file and manually changing the following labels with the weird characters (you can do control+F and change all). The idea here is just to group the different labels into similar groups:
+Web Attack � Sql Injection to Web Attack
+Web Attack � Brute Force  to Web Attack
+Web Attack � XSS to Web Attack
+And do the same that have the  �. 
